@@ -10,4 +10,11 @@
 
 @interface XXHomeModel : NSObject
 
+/** <#注释#> */
+@property (nonatomic, copy) NSString *cellName;
+/** <#注释#> */
+@property (nonatomic, copy) NSString *VCName;
+/** <#注释#> */
+@property (nonatomic, copy) NSString *VCStr;
+
 @end

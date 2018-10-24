@@ -7,7 +7,11 @@
 //
 
 #import "XXBaseTableViewCell.h"
+#import "XXHomeModel.h"
 
 @interface XXHomeTableViewCell : XXBaseTableViewCell
+
+/** <#注释#> */
+@property (nonatomic, strong) XXHomeModel *model;
 
 @end

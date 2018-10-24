@@ -8,6 +8,9 @@
 
 #import "XXMainTabViewController.h"
 
+#import "XXBaseNavgationController.h"
+#import "XXHomeViewController.h"
+
 @interface XXMainTabViewController ()
 
 @end
@@ -16,7 +19,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentViewController:) name:nPresentViewController object:nil];
+    
+    [self setupSubViewControllers];
     // Do any additional setup after loading the view.
+}
+
+- (void)setupSubViewControllers {
+    
+    XXHomeViewController *VC = [[XXHomeViewController alloc] init];
+    XXBaseNavgationController *navVC = [[XXBaseNavgationController alloc] initWithRootViewController:VC];
+    
+    self.viewControllers = @[navVC];
+}
+
+- (void)presentViewController:(NSNotification *)notification {
+    
+    NSDictionary *notiObj = notification.object;
+    
+    if ([notiObj objectForKey:PresentViewControllerParamsKey]) {
+        
+        UIViewController *VC = [notiObj objectForKey:PresentViewControllerParamsKey];
+        
+        [self presentViewController:VC animated:YES completion:nil];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.nav_status_height = STATUS_BAR_HEIGHT + CONST_NAV_BAR_HEIGHT;
     // Do any additional setup after loading the view.
 }
 
