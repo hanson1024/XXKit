@@ -24,65 +24,65 @@
 
 + (void)checkAppVersionDataWithForce:(BOOL)isForce {
         
-        //本地数据测试
-        NSString *testContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test.txt" ofType:nil] encoding:NSUTF8StringEncoding error:nil];
-        NSData *data = [testContent dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *receiveStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSData *jsonData = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *err;
-
-        NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:jsonData
-
-                                                            options:NSJSONReadingMutableContainers
-
-                                                              error:&err];
+    //本地数据测试
+    NSString *testContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test.txt" ofType:nil] encoding:NSUTF8StringEncoding error:nil];
+    NSData *data = [testContent dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *receiveStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSData *jsonData = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    
+    if (error) {
+        NSLog(@"error = %@",error);
+        return;
+    }
         
-        NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-        NSString *currentVersionStr = [NSString stringWithFormat:@"当前版本：V%@",currentVersion];
+    NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *currentVersionStr = [NSString stringWithFormat:@"当前版本：V%@",currentVersion];
+    
+    if (IS_AVAILABLE_DICT(responseObject)) {
         
-        if (IS_AVAILABLE_DICT(responseObject)) {
+        NSString *versionName = NSSTRING_SAFE_GET_NONULL_VAL([responseObject objectForKey:@"versionName"]);
+        NSString *forceUpdateVer = NSSTRING_SAFE_GET_NONULL_VAL([responseObject objectForKey:@"forceUpdateVer"]);
+        long updatePrompt = [[responseObject objectForKey:@"updatePrompt"] longValue];
+        NSArray *updateContent = [responseObject objectForKey:@"updateContent"];
+        
+        BOOL hasUpdate = [self compareVersionWithNewVersion:versionName currentVersion:currentVersion]; //是否升级
+        BOOL hasForceUpdate = [self compareVersionWithNewVersion:forceUpdateVer currentVersion:currentVersion]; //是否强制升级
+        
+        if (!hasForceUpdate) {
             
-            NSString *versionName = NSSTRING_SAFE_GET_NONULL_VAL([responseObject objectForKey:@"versionName"]);
-            NSString *forceUpdateVer = NSSTRING_SAFE_GET_NONULL_VAL([responseObject objectForKey:@"forceUpdateVer"]);
-            long updatePrompt = [[responseObject objectForKey:@"updatePrompt"] longValue];
-            NSArray *updateContent = [responseObject objectForKey:@"updateContent"];
-            
-            BOOL hasUpdate = [self compareVersionWithNewVersion:versionName currentVersion:currentVersion]; //是否升级
-            BOOL hasForceUpdate = [self compareVersionWithNewVersion:forceUpdateVer currentVersion:currentVersion]; //是否强制升级
-            
-            if (!hasForceUpdate) {
-                
-                if (!hasUpdate) return ; //新的版本号等于或者小于当前版本号，则不需提示
-                if (isForce) return; //APP进入前台，且需要强制更新，才提示
-                if ([self hasRemoveTipForVersion:versionName]) return; //校验是否勾选过跳过版本更新
-                if ([self hasMaxTipCountForVersion:versionName]) return; //是否已经超过最大提示次数
-            }
-            
-            if (IS_AVAILABLE_ARRAY(updateContent) && [updateContent count]) {
-                NSLog(@"updateContent = %@",updateContent);
-            }else {
-                NSLog(@"无提示文案");
-                updateContent = [NSArray array];
-            }
-            
-            LSVersionUpdateView *updateVersionView = [LSVersionUpdateView showUpdateWithTitles:updateContent versionStr:currentVersionStr newVersionStr:versionName force:hasForceUpdate];
-            [updateVersionView setDidClickUpdateButtonBlock:^(NSInteger idx) {
-                if (idx == 1) {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_URL]];
-                }
-                
-                if (idx == 2) {
-                    NSLog(@"跳过本次更新");
-                    [self saveRemoveTipForVersion:versionName];
-                }
-                
-                if (idx == 0) {
-                    [self saveVersionTipCount:updatePrompt forVersion:versionName];
-                }
-            }];
-            
-            [updateVersionView showInView:[UIApplication sharedApplication].keyWindow];
+            if (!hasUpdate) return ; //新的版本号等于或者小于当前版本号，则不需提示
+            if (isForce) return; //APP进入前台，且需要强制更新，才提示
+            if ([self hasRemoveTipForVersion:versionName]) return; //校验是否勾选过跳过版本更新
+            if ([self hasMaxTipCountForVersion:versionName]) return; //是否已经超过最大提示次数
         }
+        
+        if (IS_AVAILABLE_ARRAY(updateContent) && [updateContent count]) {
+            NSLog(@"updateContent = %@",updateContent);
+        }else {
+            NSLog(@"无提示文案");
+            updateContent = [NSArray array];
+        }
+        
+        LSVersionUpdateView *updateVersionView = [LSVersionUpdateView showUpdateWithTitles:updateContent versionStr:currentVersionStr newVersionStr:versionName force:hasForceUpdate];
+        [updateVersionView setDidClickUpdateButtonBlock:^(NSInteger idx) {
+            if (idx == 1) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_URL]];
+            }
+            
+            if (idx == 2) {
+                NSLog(@"跳过本次更新");
+                [self saveRemoveTipForVersion:versionName];
+            }
+            
+            if (idx == 0) {
+                [self saveVersionTipCount:updatePrompt forVersion:versionName];
+            }
+        }];
+        
+        [updateVersionView showInView:[UIApplication sharedApplication].keyWindow];
+    }
   
 }
 

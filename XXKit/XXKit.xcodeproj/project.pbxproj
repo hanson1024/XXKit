@@ -373,8 +373,8 @@
 		B153ED27218A00EB004CD2B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B153ED28218A00EB004CD2B3 /* LSVersionManager.m */,
 				B153ED29218A00EB004CD2B3 /* LSVersionManager.h */,
+				B153ED28218A00EB004CD2B3 /* LSVersionManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";

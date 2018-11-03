@@ -311,6 +311,7 @@ static const NSTimeInterval kLSReleaseNotesViewTransitionDuration = 0.2f;
 }
 
 - (void)setBorderWithTop:(BOOL)top left:(BOOL)left bottom:(BOOL)bottom right:(BOOL)right borderColor:(UIColor *)color borderWidth:(CGFloat)width forView:(UIView *)view{
+    
     if (top) {
         CALayer *layer = [CALayer layer];
         layer.frame = CGRectMake(0, 0, view.frame.size.width, width);

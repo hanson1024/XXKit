@@ -23,7 +23,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    [LSVersionManager checkAppVersionDataWithForce:YES];
+    [LSVersionManager checkAppVersionDataWithForce:NO];
 }
 
 - (void)didReceiveMemoryWarning {
