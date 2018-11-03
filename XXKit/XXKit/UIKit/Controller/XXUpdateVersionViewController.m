@@ -1,30 +1,29 @@
 //
-//  XXBaseViewController.m
+//  XXUpdateVersionViewController.m
 //  XXKit
 //
-//  Created by luo on 2018/10/24.
+//  Created by luo on 2018/10/31.
 //  Copyright © 2018年 hanson. All rights reserved.
 //
 
-#import "XXBaseViewController.h"
+#import "XXUpdateVersionViewController.h"
+#import "LSVersionManager.h"
 
-@interface XXBaseViewController ()
+@interface XXUpdateVersionViewController ()
 
 @end
 
-@implementation XXBaseViewController
+@implementation XXUpdateVersionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.nav_status_height = STATUS_BAR_HEIGHT + CONST_NAV_BAR_HEIGHT;
     // Do any additional setup after loading the view.
 }
 
--(void)dealloc {
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    NSLog(@"%s, %d", __FUNCTION__, __LINE__);
+    [LSVersionManager checkAppVersionDataWithForce:YES];
 }
 
 - (void)didReceiveMemoryWarning {

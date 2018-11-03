@@ -1,0 +1,7 @@
+{
+"versionCode" : "20180917",
+"versionName" : "1.6",
+"forceUpdateVer" : "1.0.0",
+"updateContent" : ["新增XX功能，修复XX问题等"],
+"updatePrompt" : 3
+}

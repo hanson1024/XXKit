@@ -16,6 +16,8 @@
 @property (nonatomic, strong) UIImageView *bgImageView;
 /** <#注释#> */
 @property (nonatomic, strong) UIButton *photoButton;
+/** <#注释#> */
+@property (nonatomic, strong) UIButton *cameraButton;
 
 
 @end
@@ -32,11 +34,16 @@
         make.edges.equalTo(self.view);
     }];
     WEAK_SELF(weakSelf);
-    _photoButton = [UIButton buttonWithStyle:CustomButtonTypeBigCornerAndGradient andTitle:@"获取图片" andFrame:CGRectMake(15, self.view.height - 44 - SAFE_BOTTOM - 30, SCREEN_WIDTH - 30, 44) actionBlock:^{
+    _photoButton = [UIButton buttonWithStyle:CustomButtonTypeBigCornerAndGradient andTitle:@"获取相机图片" andFrame:CGRectMake(15, self.view.height - 44 - SAFE_BOTTOM - 30, SCREEN_WIDTH - 30, 44) actionBlock:^{
+        [weakSelf openCameraPhotos];
+    }];
+    
+    _cameraButton = [UIButton buttonWithStyle:CustomButtonTypeBigCornerAndGradient andTitle:@"获取相册图片" andFrame:CGRectMake(15, self.view.height - 44 - SAFE_BOTTOM - 30 - _photoButton.height - 30, SCREEN_WIDTH - 30, 44) actionBlock:^{
         [weakSelf openPhotos];
     }];
     
     [self.view addSubview:_photoButton];
+    [self.view addSubview:_cameraButton];
     // Do any additional setup after loading the view.
 }
 
@@ -55,6 +62,13 @@
 #pragma mark - event response
 
 - (void)openPhotos {
+    WEAK_SELF(weakSelf);
+    [[XXImageTool shareManager] openMobileImagesWithType:YXXImageToolSourceTypePhoto maxImagesCount:1 finishBlock:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        weakSelf.bgImageView.image = photos.firstObject;
+    }];
+}
+
+- (void)openCameraPhotos {
     WEAK_SELF(weakSelf);
     [[XXImageTool shareManager] openMobileImagesWithType:YXXImageToolSourceTypeCamera maxImagesCount:1 finishBlock:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
         weakSelf.bgImageView.image = photos.firstObject;

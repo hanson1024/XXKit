@@ -26,6 +26,15 @@
 		B10BA1BA218020D200B3C30E /* XXImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B10BA1B9218020D200B3C30E /* XXImageTool.m */; };
 		B10BA1BE2180238400B3C30E /* UIButton+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B10BA1BC2180238400B3C30E /* UIButton+Common.m */; };
 		B10BA1C42180243800B3C30E /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = B10BA1C32180243800B3C30E /* UIImage+Gradient.m */; };
+		B153ED1E2189FEA4004CD2B3 /* XXUpdateVersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B153ED1D2189FEA4004CD2B3 /* XXUpdateVersionViewController.m */; };
+		B153ED2D218A00EB004CD2B3 /* LS火箭biubiu.png in Resources */ = {isa = PBXBuildFile; fileRef = B153ED22218A00EB004CD2B3 /* LS火箭biubiu.png */; };
+		B153ED2E218A00EB004CD2B3 /* LS_state_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B153ED23218A00EB004CD2B3 /* LS_state_selected@2x.png */; };
+		B153ED2F218A00EB004CD2B3 /* LS_state_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B153ED24218A00EB004CD2B3 /* LS_state_default@2x.png */; };
+		B153ED30218A00EB004CD2B3 /* LS火箭biubiu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B153ED25218A00EB004CD2B3 /* LS火箭biubiu@2x.png */; };
+		B153ED31218A00EB004CD2B3 /* LS火箭biubiu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B153ED26218A00EB004CD2B3 /* LS火箭biubiu@3x.png */; };
+		B153ED32218A00EB004CD2B3 /* LSVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B153ED28218A00EB004CD2B3 /* LSVersionManager.m */; };
+		B153ED33218A00EB004CD2B3 /* LSVersionUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = B153ED2C218A00EB004CD2B3 /* LSVersionUpdateView.m */; };
+		B153ED35218A0149004CD2B3 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = B153ED34218A0149004CD2B3 /* test.txt */; };
 		CCF77E961D4FA090DA096BA5 /* libPods-XXKitUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E907FF329C84C42F1877DBB3 /* libPods-XXKitUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +96,18 @@
 		B10BA1BD2180238400B3C30E /* UIButton+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Common.h"; sourceTree = "<group>"; };
 		B10BA1C22180243800B3C30E /* UIImage+Gradient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gradient.h"; sourceTree = "<group>"; };
 		B10BA1C32180243800B3C30E /* UIImage+Gradient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gradient.m"; sourceTree = "<group>"; };
+		B153ED1C2189FEA4004CD2B3 /* XXUpdateVersionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXUpdateVersionViewController.h; sourceTree = "<group>"; };
+		B153ED1D2189FEA4004CD2B3 /* XXUpdateVersionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXUpdateVersionViewController.m; sourceTree = "<group>"; };
+		B153ED22218A00EB004CD2B3 /* LS火箭biubiu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LS火箭biubiu.png"; sourceTree = "<group>"; };
+		B153ED23218A00EB004CD2B3 /* LS_state_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LS_state_selected@2x.png"; sourceTree = "<group>"; };
+		B153ED24218A00EB004CD2B3 /* LS_state_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LS_state_default@2x.png"; sourceTree = "<group>"; };
+		B153ED25218A00EB004CD2B3 /* LS火箭biubiu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LS火箭biubiu@2x.png"; sourceTree = "<group>"; };
+		B153ED26218A00EB004CD2B3 /* LS火箭biubiu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LS火箭biubiu@3x.png"; sourceTree = "<group>"; };
+		B153ED28218A00EB004CD2B3 /* LSVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSVersionManager.m; sourceTree = "<group>"; };
+		B153ED29218A00EB004CD2B3 /* LSVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSVersionManager.h; sourceTree = "<group>"; };
+		B153ED2B218A00EB004CD2B3 /* LSVersionUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSVersionUpdateView.h; sourceTree = "<group>"; };
+		B153ED2C218A00EB004CD2B3 /* LSVersionUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSVersionUpdateView.m; sourceTree = "<group>"; };
+		B153ED34218A0149004CD2B3 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		D1EB7B564C12F3EE47F660C9 /* libPods-XXKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XXKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27DD4E5A78C5FFEEE8C7421 /* libPods-XXKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XXKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EF217339B14530F4E77E70 /* Pods-XXKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXKitTests/Pods-XXKitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -272,6 +293,7 @@
 		B10BA1952180151000B3C30E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				B153ED1F218A00EB004CD2B3 /* Tools */,
 				B10BA1962180151000B3C30E /* Controller */,
 				B10BA1972180151000B3C30E /* Model */,
 				B10BA1982180151000B3C30E /* View */,
@@ -284,6 +306,8 @@
 			children = (
 				B10BA1992180153000B3C30E /* XXImageViewController.h */,
 				B10BA19A2180153000B3C30E /* XXImageViewController.m */,
+				B153ED1C2189FEA4004CD2B3 /* XXUpdateVersionViewController.h */,
+				B153ED1D2189FEA4004CD2B3 /* XXUpdateVersionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -313,6 +337,55 @@
 				B10BA1C32180243800B3C30E /* UIImage+Gradient.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		B153ED1F218A00EB004CD2B3 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				B153ED20218A00EB004CD2B3 /* LSVersionManager */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		B153ED20218A00EB004CD2B3 /* LSVersionManager */ = {
+			isa = PBXGroup;
+			children = (
+				B153ED21218A00EB004CD2B3 /* Source */,
+				B153ED27218A00EB004CD2B3 /* Model */,
+				B153ED2A218A00EB004CD2B3 /* View */,
+			);
+			path = LSVersionManager;
+			sourceTree = "<group>";
+		};
+		B153ED21218A00EB004CD2B3 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B153ED34218A0149004CD2B3 /* test.txt */,
+				B153ED22218A00EB004CD2B3 /* LS火箭biubiu.png */,
+				B153ED23218A00EB004CD2B3 /* LS_state_selected@2x.png */,
+				B153ED24218A00EB004CD2B3 /* LS_state_default@2x.png */,
+				B153ED25218A00EB004CD2B3 /* LS火箭biubiu@2x.png */,
+				B153ED26218A00EB004CD2B3 /* LS火箭biubiu@3x.png */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B153ED27218A00EB004CD2B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B153ED28218A00EB004CD2B3 /* LSVersionManager.m */,
+				B153ED29218A00EB004CD2B3 /* LSVersionManager.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B153ED2A218A00EB004CD2B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B153ED2B218A00EB004CD2B3 /* LSVersionUpdateView.h */,
+				B153ED2C218A00EB004CD2B3 /* LSVersionUpdateView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D0B39B7D44F86BF3224376DF /* Frameworks */ = {
@@ -433,8 +506,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B153ED2E218A00EB004CD2B3 /* LS_state_selected@2x.png in Resources */,
 				B10BA15C2180105500B3C30E /* LaunchScreen.storyboard in Resources */,
+				B153ED2F218A00EB004CD2B3 /* LS_state_default@2x.png in Resources */,
+				B153ED31218A00EB004CD2B3 /* LS火箭biubiu@3x.png in Resources */,
 				B10BA1592180105500B3C30E /* Assets.xcassets in Resources */,
+				B153ED2D218A00EB004CD2B3 /* LS火箭biubiu.png in Resources */,
+				B153ED35218A0149004CD2B3 /* test.txt in Resources */,
+				B153ED30218A00EB004CD2B3 /* LS火箭biubiu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +618,10 @@
 				B10BA19B2180153000B3C30E /* XXImageViewController.m in Sources */,
 				B10BA194218012F100B3C30E /* XXBaseNavgationController.m in Sources */,
 				B10BA1BE2180238400B3C30E /* UIButton+Common.m in Sources */,
+				B153ED33218A00EB004CD2B3 /* LSVersionUpdateView.m in Sources */,
 				B10BA1A7218015BC00B3C30E /* XXHomeTableViewCell.m in Sources */,
+				B153ED32218A00EB004CD2B3 /* LSVersionManager.m in Sources */,
+				B153ED1E2189FEA4004CD2B3 /* XXUpdateVersionViewController.m in Sources */,
 				B10BA1C42180243800B3C30E /* UIImage+Gradient.m in Sources */,
 				B10BA15F2180105500B3C30E /* main.m in Sources */,
 				B10BA1A12180158300B3C30E /* XXHomeModel.m in Sources */,

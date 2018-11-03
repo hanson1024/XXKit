@@ -37,6 +37,34 @@ OK; \
 #define SCREEN_WIDTH                           [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT                          [UIScreen mainScreen].bounds.size.height
 
+//字体
+#define FONT(F_S)                               [UIFont systemFontOfSize:(F_S)]
+#define BOLD_FONT(F_S)                          [UIFont boldSystemFontOfSize:(F_S)]
+
+//判断可用的NSObject对象
+#define IS_AVAILABLE_OBJ(NSSET_OBJ)             (NSSET_OBJ != nil)
+#define IS_AVAILABLE_NSSET_OBJ(NSSET_OBJ)       (NSSET_OBJ != nil && NSSET_OBJ.count > 0)
+#define IS_AVAILABLE_NSSTRNG(STRING)            (STRING != nil && [STRING isKindOfClass:[NSString class]] && STRING.length > 0)
+#define IS_AVAILABLE_ATTRIBUTEDSTRING(ATTR_STR) (ATTR_STR != nil && ATTR_STR.length > 0)
+#define IS_AVAILABLE_DATA(DATA)                 (DATA != nil && DATA.length > 0)
+#define IS_AVAILABLE_ARRAY(LIST)                (LIST != nil && [LIST isKindOfClass:[NSArray class]])
+#define IS_AVAILABLE_DICT(DICTIONARY)           (DICTIONARY != nil && [DICTIONARY isKindOfClass:[NSDictionary class]])
+
+#define IS_IN_ARRAY_FOR_INDEX(ARRAY,INDEX)      (IS_AVAILABLE_NSSET_OBJ(ARRAY) ? (INDEX >= 0 && INDEX < ARRAY.count) : NO)
+
+//返回的一些安全操作
+#define NSSTRING_SAFE_GET_NONULL_VAL(VAL)       (VAL) ? (VAL) : @""
+#define NSSTRING_SAFE_RET_NONULL_VAL(VAL)       return ((VAL) ? (VAL) : @"")
+#define NSSTRING_SAFE_GET_NOnull_VAL(VAL)       (([VAL isEqual:[NSNull null]]) ? @"": VAL)
+
+#define NSNUMBER_SAFE_GET_NONULL_VAL(VAL)       (([VAL isEqual:[NSNull null]]) ? @0: VAL)
+
+#define NSARRAY_SAFE_GET_NONULL_VAL(VAL)        (VAL) ? (VAL) : (@[])
+#define NSARRAY_SAFE_RET_NONULL_VAL(VAL)        return ((VAL) ? (VAL) : (@[]))
+
+#define NSDICTIONARY_SAFE_GET_NONULL_VAL(VAL)   (VAL) ? (VAL) : (@{})
+#define NSDICTIONARY_SAFE_RET_NONULL_VAL(VAL)   return ((VAL) ? (VAL) : (@{}))
+
 //弱引用
 #define WEAK_NSOBJ(NSOBJ,WEAK_NAME)             __weak __typeof(&*NSOBJ) WEAK_NAME = NSOBJ
 #define WEAK_SELF(WEAK_NAME)                    __weak __typeof(&*self) WEAK_NAME = self

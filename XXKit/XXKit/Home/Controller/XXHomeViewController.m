@@ -69,14 +69,21 @@
 
 - (void)setupDataSource {
     
+    NSArray *dataSource = @[@{@"cellName":@"图片相关",@"VCName":@"一行代码获取图片",@"VCStr":@"XXImageViewController"},
+                            @{@"cellName":@"升级提示框",@"VCName":@"获取升级提示",@"VCStr":@"XXUpdateVersionViewController"}];
+    
+    
     _dataSource = [NSMutableArray array];
     
-    NSMutableArray *models = [NSMutableArray array];
-    XXHomeModel *model = [[XXHomeModel alloc] init];
-    model.cellName = @"图片相关";
-    model.VCName = @"一行代码获取图片";
-    model.VCStr = @"XXImageViewController";
-    [models addObject:model];
+    NSMutableArray *models = [NSMutableArray arrayWithCapacity:dataSource.count];
+    
+    for (NSDictionary *dict in dataSource) {
+        
+        XXHomeModel *model = [XXHomeModel modelWithJSON:dict];
+        if (model) {
+            [models addObject:model];
+        }
+    }
     
     [_dataSource addObject:models];
 }
