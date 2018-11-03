@@ -11,12 +11,12 @@
 #import "LSVersionManager.h"
 #import "LSVersionUpdateView.h"
 
-#define kUpdateTipData @"LSUpdateVersionView_path_UpdateTipNum"
+NSString *const kUpdateTipData  = @"LS_kUpdateTipData";
+NSString *const kTotalNumber    = @"LS_kTotalNumber";
+NSString *const kUpdateNumber   = @"LS_kUpdateNumber";
+NSString *const kRemoveTipKey   = @"LS_kRemoveTipKey";
 
 #define kVersionKey(version) [NSString stringWithFormat:@"%@%@",kUpdateTipData,version]
-#define kTotalNumber @"kTotalNumber"
-#define kUpdateNumber @"kUpdateNumber"
-#define kRemoveTipKey @"kRemoveTipKey"
 
 #define APP_URL @"https://itunes.apple.com/cn/app/id1423446776?mt=8"
 
