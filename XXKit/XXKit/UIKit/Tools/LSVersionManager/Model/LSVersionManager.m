@@ -6,36 +6,25 @@
 //  Copyright © 2018年 gdtech. All rights reserved.
 //
 
-#import "XXMacro.h"
-
 #import "LSVersionManager.h"
 #import "LSVersionUpdateView.h"
 
-NSString *const kUpdateTipData  = @"LS_kUpdateTipData";
-NSString *const kTotalNumber    = @"LS_kTotalNumber";
-NSString *const kUpdateNumber   = @"LS_kUpdateNumber";
-NSString *const kRemoveTipKey   = @"LS_kRemoveTipKey";
+static NSString *const kUpdateTipData  = @"ls_versionUpdate_updateTipData";
+static NSString *const kTotalNumber    = @"ls_versionUpdate_totalNumber";
+static NSString *const kUpdateNumber   = @"ls_versionUpdate_updateNumber";
+static NSString *const kRemoveTipKey   = @"ls_versionUpdate_removeTipKey";
 
 #define kVersionKey(version) [NSString stringWithFormat:@"%@%@",kUpdateTipData,version]
 
-#define APP_URL @"https://itunes.apple.com/cn/app/id1423446776?mt=8"
+#define APP_URL @"https://itunes.apple.com/cn/app/id2423446776?mt=8"
 
 @implementation LSVersionManager
 
 + (void)checkAppVersionDataWithForce:(BOOL)isForce {
         
     //本地数据测试
-    NSString *testContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test.txt" ofType:nil] encoding:NSUTF8StringEncoding error:nil];
-    NSData *data = [testContent dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *receiveStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSData *jsonData = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error;
-    NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     
-    if (error) {
-        NSLog(@"error = %@",error);
-        return;
-    }
+    NSDictionary *responseObject = [NSDictionary dictionnayWithContentsOfFileName:@"test.txt"];
         
     NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSString *currentVersionStr = [NSString stringWithFormat:@"当前版本：V%@",currentVersion];
@@ -225,9 +214,9 @@ NSString *const kRemoveTipKey   = @"LS_kRemoveTipKey";
     
     NSMutableDictionary *params = [self getParamsForVersion:version];
     
-    NSNumber *hasRemove = [params objectForKey:kRemoveTipKey];
+    NSNumber *hasRemove         = [params objectForKey:kRemoveTipKey];
     
-    return hasRemove == nil ? NO : YES;
+    return hasRemove            == nil ? NO : YES;
     
 }
 
@@ -244,10 +233,10 @@ NSString *const kRemoveTipKey   = @"LS_kRemoveTipKey";
         return nil;
     }
     
-    NSDictionary *versionsDict = [[NSUserDefaults standardUserDefaults] objectForKey:kUpdateTipData];
-    NSMutableDictionary *TPDict = [NSMutableDictionary dictionaryWithDictionary:versionsDict ? versionsDict : [NSDictionary dictionary]];
+    NSDictionary *versionsDict    = [[NSUserDefaults standardUserDefaults] objectForKey:kUpdateTipData];
+    NSMutableDictionary *TPDict   = [NSMutableDictionary dictionaryWithDictionary:versionsDict ? versionsDict : [NSDictionary dictionary]];
     
-    NSDictionary *TPhasCountDict = [TPDict objectForKey:kVersionKey(version)];
+    NSDictionary *TPhasCountDict  = [TPDict objectForKey:kVersionKey(version)];
     return [NSMutableDictionary dictionaryWithDictionary:TPhasCountDict ? TPhasCountDict : [NSDictionary dictionary]];
 }
 
@@ -268,7 +257,7 @@ NSString *const kRemoveTipKey   = @"LS_kRemoveTipKey";
         return ;
     }
     
-    NSDictionary *versionsDict = [[NSUserDefaults standardUserDefaults] objectForKey:kUpdateTipData];
+    NSDictionary *versionsDict  = [[NSUserDefaults standardUserDefaults] objectForKey:kUpdateTipData];
     NSMutableDictionary *TPDict = [NSMutableDictionary dictionaryWithDictionary:versionsDict ? versionsDict : [NSDictionary dictionary]];
     [TPDict setObject:parmas forKey:kVersionKey(version)];
     [[NSUserDefaults standardUserDefaults] setObject:TPDict forKey:kUpdateTipData];
@@ -283,11 +272,8 @@ NSString *const kRemoveTipKey   = @"LS_kRemoveTipKey";
     if (dict) {
         
         NSDate *currentDate = [NSDate date];
-        
         NSDate *lastTipDate = [dict objectForKey:@"lastTipDate"];
-        
         NSTimeInterval time = [currentDate timeIntervalSinceDate:lastTipDate];
-        
         NSInteger days = ((int)time)/(3600*24);
         
         if (days > 0) {

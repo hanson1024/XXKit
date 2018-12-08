@@ -9,6 +9,8 @@
 #import <YYKit/YYKit.h>
 #import <Masonry/Masonry.h>
 
+#import "NSDictionary+Common.h"
+
 #ifndef XXMacro_h
 #define XXMacro_h
 
@@ -70,8 +72,6 @@ OK; \
 #define WEAK_SELF(WEAK_NAME)                    __weak __typeof(&*self) WEAK_NAME = self
 
 #define nPresentViewController                   @"nPresentViewController"    //全局弹出VC
-
-
-#define PresentViewControllerParamsKey @"PresentViewControllerParamsKey"
+#define PresentViewControllerParamsKey           @"PresentViewControllerParamsKey"
 
 #endif /* XXMacro_h */

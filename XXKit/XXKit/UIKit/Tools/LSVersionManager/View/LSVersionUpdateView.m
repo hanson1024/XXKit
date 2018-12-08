@@ -5,7 +5,6 @@
 //  Created by luo on 2018/10/31.
 //  Copyright © 2018年 gdtech. All rights reserved.
 //
-#import "XXMacro.h"
 
 #import "LSVersionUpdateView.h"
 
